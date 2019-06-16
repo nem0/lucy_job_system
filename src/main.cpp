@@ -1,6 +1,7 @@
 #include "lucy.h"
 #include <condition_variable>
 #include <cstdio>
+#include <thread>
 #include <mutex>
 
 
@@ -39,7 +40,7 @@ void jobA(void*)
 
 int main(int argc, char* argv[])
 {
-	lucy::init();
+	lucy::init(std::thread::hardware_concurrency());
 	lucy::run(nullptr, jobA, nullptr);
 	std::unique_lock<std::mutex> lck(g_finished_mutex);
 	g_finished.wait(lck);

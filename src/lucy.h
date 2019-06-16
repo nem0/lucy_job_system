@@ -18,7 +18,7 @@ constexpr u8 ANY_WORKER = 0xff;
 constexpr SignalHandle INVALID_HANDLE = 0xffFFffFF;
 
 
-LUCY_API bool init();
+LUCY_API bool init(u8 workers_count);
 LUCY_API void shutdown();
 LUCY_API int getWorkersCount();
 

@@ -430,7 +430,7 @@ void runEx(void* data, void(*task)(void*), SignalHandle* on_finished, SignalHand
 }
 
 
-bool init()
+bool init(u8 workers_count)
 {
 	assert(!g_system);
 
@@ -449,7 +449,7 @@ bool init()
 		decl.idx = i;
 	}
 
-	unsigned count = std::thread::hardware_concurrency();
+	unsigned count = workers_count;
 	if (count == 0) count = 1;
 	for (unsigned i = 0; i < count; ++i) {
 		WorkerTask* task = new WorkerTask(*g_system, i < 64 ? u64(1) << i : 0);
