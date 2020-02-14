@@ -404,7 +404,7 @@ void runEx(void* data, void(*task)(void*), SignalHandle* on_finished, SignalHand
 
 			g_system->m_sync.lock();
 			g_system->m_free_fibers.push_back(this_fiber);
-			Fiber::switchTo(&getWorker()->m_current_fiber->fiber, fiber->fiber);
+			Fiber::switchTo(&this_fiber->fiber, fiber->fiber);
 			g_system->m_sync.unlock();
 
 			worker = getWorker();
