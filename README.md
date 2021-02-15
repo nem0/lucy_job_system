@@ -1,6 +1,6 @@
 # Lucy Job System
 
-** This is outdated compared to [Lumix Engine](https://github.com/nem0/LumixEngine/blob/master/src/engine/job_system.h). Use that instead.**
+**This is outdated compared to [Lumix Engine](https://github.com/nem0/LumixEngine/blob/master/src/engine/job_system.h). Use that instead.**
 
 Fiber-based job system with extremely simple API. 
 
